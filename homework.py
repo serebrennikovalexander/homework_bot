@@ -83,10 +83,7 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """
-    Извлечение статуса конкретной домашней работы
-    из списка домашних работ.
-    """
+    """Извлечение статуса домашней работы."""
     homework_name = homework.get('homework_name')
     homework_status = homework.get('status')
 
