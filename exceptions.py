@@ -8,3 +8,15 @@ class HomeworkStatusError(Exception):
 
 class UnsuccessfulStatusCode(Exception):
     """Статус ответа сервера не 200."""
+
+
+class APIAnswerError(Exception):
+    """Ошибка при запросе к API."""
+
+
+class HomeworkEmptyListError(Exception):
+    """Cписок домашних работ пуст."""
+
+
+class NoNewStatusesError(Exception):
+    """Отсутствие в ответе новых статусов."""
