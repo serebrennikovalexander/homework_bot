@@ -29,6 +29,16 @@ HOMEWORK_VERDICTS = {
     'rejected': 'Работа проверена: у ревьюера есть замечания.'
 }
 
+# Создаём и настраиваем логгер
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'
+)
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
 
 def send_message(bot: Bot, message: str) -> None:
     """Отправка сообщения в Telegram чат."""
@@ -117,16 +127,6 @@ def check_tokens() -> bool:
 
 def main() -> None:
     """Основная логика работы бота."""
-    # Создаём и настраиваем логгер
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter(
-        '%(asctime)s - %(levelname)s - %(message)s'
-    )
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-
     logger.info('Запуск бота')
 
     if not check_tokens():
